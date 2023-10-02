@@ -44,19 +44,22 @@ const deleteChildren = (child) => {
             </button>
         </div>
         <div class="childrens" v-if="childrens.length">
-            <div class="children" v-for="child in childrens" :key="child">
-                <div class="children_name">
-                    <label for="name_id">Имя</label>
-                    <input id="name_id" v-model="child.name" placeholder="Children name" type="text" class="name_input" />
-                </div>
+            <transition-group name="list">
+                <div class="children" v-for="child in childrens" :key="child">
+                    <div class="children_name">
+                        <label for="name_id">Имя</label>
+                        <input id="name_id" v-model="child.name" placeholder="Children name" type="text"
+                            class="name_input" />
+                    </div>
 
-                <div class="children_age">
-                    <label for="age_id">Возраст</label>
-                    <input id="age_id" v-model="child.age" placeholder="Children age" type="number" class="age_input" />
-                </div>
+                    <div class="children_age">
+                        <label for="age_id">Возраст</label>
+                        <input id="age_id" v-model="child.age" placeholder="Children age" type="number" class="age_input" />
+                    </div>
 
-                <button class="delete_children" @click="deleteChildren(child)">Удалить</button>
-            </div>
+                    <button class="delete_children" @click="deleteChildren(child)">Удалить</button>
+                </div>
+            </transition-group>
         </div>
     </div>
 </template>
@@ -70,7 +73,6 @@ const deleteChildren = (child) => {
     flex-direction: column;
     gap: 20px;
     max-width: 616px;
-    height: 100%;
     width: 100%;
 
     .children_header {
@@ -175,5 +177,16 @@ const deleteChildren = (child) => {
             }
         }
     }
+}
+
+.list-enter-active,
+.list-leave-active {
+    transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+    opacity: 0;
+    transform: translateX(50px);
 }
 </style>
