@@ -6,7 +6,6 @@
 
 <style scoped lang="scss">
 .footer_layout {
-
     background: #FAFAFA;
     box-shadow: 0px 1px 0px 0px rgba(17, 17, 17, 0.10);
     width: 100%;

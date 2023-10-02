@@ -4,7 +4,11 @@ import PreviewPage from "@/pages/PreviewPage.vue";
 
 const routes = [
   { path: "/", component: FormPage },
-  { path: "/preview", component: PreviewPage },
+
+  {
+    path: "/preview",
+    component: PreviewPage,
+  },
 ];
 
 const router = createRouter({
